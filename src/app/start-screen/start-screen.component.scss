@@ -1,0 +1,31 @@
+.start-screen {
+    background-color: #3b3b3b;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+    img {
+        width: 100%;
+    }
+    button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        min-width: 150px;
+        border: none;
+        background-color: rgb(223, 56, 56);
+        color: white;
+        padding: 20px;
+        font-size: 42px;
+        border-radius: 10px;
+        &:hover {
+            background-color: rgb(182, 31, 31);
+            cursor: pointer;
+        }
+    }
+}
