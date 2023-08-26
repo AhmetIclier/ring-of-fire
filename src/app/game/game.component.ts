@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
 
 @Component({
@@ -6,13 +6,17 @@ import { Game } from 'src/models/game';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
-export class GameComponent{
+export class GameComponent implements OnInit{
   pickCardAnimation = false;
+  currentCard: string = '';
   game!: Game;
 
   constructor() {
-    this.newGame();
   };
+
+  ngOnInit() {
+    this.newGame();
+  }
 
   newGame() {
     this.game = new Game();
@@ -20,6 +24,18 @@ export class GameComponent{
   }
   
   takeCard() {
-    this.pickCardAnimation = true;
+    if (this.game.stack.length > 0 && !this.pickCardAnimation) {
+      this.currentCard = this.game.stack.pop()!;
+      console.log(this.currentCard);
+      this.pickCardAnimation = true;
+      
+
+      setTimeout(() => {
+        this.pickCardAnimation = false;
+        this.game.playedCards.push(this.currentCard);
+      }, 1000);
+    } else {
+      console.log("Stack is empty");
+    }
   }
 }
