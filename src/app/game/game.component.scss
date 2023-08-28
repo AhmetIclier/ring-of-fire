@@ -49,3 +49,15 @@
     right: 15px;
     transform: scale(1.3) translateX(220px) translateY(-280px) rotate(-10deg);
 }
+
+.player-container {
+    position: absolute;
+    right: 0;
+}
+
+.btn-add {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    background-color: teal;
+}

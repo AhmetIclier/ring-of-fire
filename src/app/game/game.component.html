@@ -1,3 +1,9 @@
+<app-player 
+class="player-container" 
+*ngFor="let player of game.players; let i = index;"
+[name]="player"
+[ngStyle]="{'top.px': 100 + (i * 150)}"></app-player>
+
 <div class="game-bg">
     <div class="card-stack">
         <!-- stack of multiple cards -->
@@ -14,3 +20,7 @@
 
     </div>
 </div>
+
+<button mat-fab color="primary" class="btn-add">
+    <mat-icon>add</mat-icon>
+</button>
